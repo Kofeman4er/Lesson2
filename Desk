@@ -1,0 +1,101 @@
+
+public class Desk {
+
+	private Shape shapeOne;
+	private Shape shapeTwo;
+	private Shape shapeThree;
+	private Shape shapeFour;
+	private Shape[] newDesk = new Shape[4];
+
+	public Desk() {
+		super();
+	}
+
+	public Desk(Shape shapeOne, Shape shapeTwo, Shape shapeThree, Shape shapeFour) {
+		super();
+		this.shapeOne = shapeOne;
+		this.shapeTwo = shapeTwo;
+		this.shapeThree = shapeThree;
+		this.shapeFour = shapeFour;
+	}
+
+	public Shape getShapeOne() {
+		return shapeOne;
+	}
+
+	public void setShapeOne(Shape shapeOne) {
+		this.shapeOne = shapeOne;
+	}
+
+	public void clearShapeOne() {
+		this.shapeOne = null;
+	}
+
+	public Shape getShapeTwo() {
+		return shapeTwo;
+	}
+
+	public void setShapeTwo(Shape shapeTwo) {
+		this.shapeTwo = shapeTwo;
+	}
+
+	public void clearShapeTwo() {
+		this.shapeTwo = null;
+	}
+
+	public Shape getShapeThree() {
+		return shapeThree;
+	}
+
+	public void setShapeThree(Shape shapeThree) {
+		this.shapeThree = shapeThree;
+	}
+
+	public void clearShapeThree() {
+		this.shapeThree = null;
+	}
+
+	public Shape getShapeFour() {
+		return shapeFour;
+	}
+
+	public void setShapeFour(Shape shapeFour) {
+		this.shapeFour = shapeFour;
+	}
+
+	public void clearShapeFour() {
+		this.shapeFour = null;
+	}
+
+	private void fillDesk() {
+		newDesk[0] = shapeOne;
+		newDesk[1] = shapeTwo;
+		newDesk[2] = shapeThree;
+		newDesk[3] = shapeFour;
+	}
+
+	public double areaDesk() {
+		double boardArea = 0;
+		fillDesk();
+		for (int i = 0; i < newDesk.length; i++) {
+			if (newDesk[i] != null) {
+				boardArea = boardArea + newDesk[i].getArea();
+			}
+		}
+		return boardArea;
+	}
+
+	@Override
+	public String toString() {
+		fillDesk();
+		String s = "Desk [ " + "\n";
+		for (int i = 0; i < newDesk.length; i++) {
+			if (newDesk[i] != null) {
+				s = s + newDesk[i].toString() + "," + "\n";
+			}
+		}
+
+		s = s + "deskArea=" + areaDesk() + "]";
+		return s;
+	}
+}
